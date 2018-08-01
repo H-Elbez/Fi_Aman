@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html lang="fr"><!--<![endif]--><!-- BEGIN HEAD -->
+<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Fi Aman |Admin Login </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+    <meta name="robots" content="noindex,nofollow">
+    <meta content="" name="description">
+    <meta content="" name="author">
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="./assets/css/css" rel="stylesheet" type="text/css">
+
+<link media="all" type="text/css" rel="stylesheet" href="./assets/fonts/fontawesome/css/font-awesome.min.css">
+
+<link media="all" type="text/css" rel="stylesheet" href="./assets/fonts/simple-line-icons/css/simple-line-icons.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+
+<link media="all" type="text/css" rel="stylesheet" href="./assets/css/default.css">
+
+
+<!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL STYLES -->
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/login-soft.css">
+
+<!-- END PAGE LEVEL SCRIPTS -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+<link media="all" type="text/css" rel="stylesheet" href="./assets/css/jquery.notific8.min.css">
+
+<!-- END PAGE LEVEL STYLES -->
+
+    <!-- BEGIN THEME STYLES -->
+    <link id="style_components" media="all" type="text/css" rel="stylesheet" href="./assets/css/components.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/plugins.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/layout.css">
+
+
+    <link id="style_color" media="all" type="text/css" rel="stylesheet" href="./assets/css/darkblue.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/custom.css">
+
+<!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="http://beta.kapri-dz.com/backend/img/favicon.ico">
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login">
+<!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+<div class="menu-toggler sidebar-toggler">
+</div>
+<!-- END SIDEBAR TOGGLER BUTTON -->
+<!-- BEGIN LOGO -->
+<div class="logo">
+    <a href="http://beta.kapri-dz.com/idara">
+            </a>
+</div>
+<!-- END LOGO -->
+<!-- BEGIN LOGIN -->
+<div class="content">
+    <!-- BEGIN LOGIN FORM -->
+    <form method="POST" action="/login" accept-charset="UTF-8" class="login-form" novalidate="novalidate"><input name="_token" type="hidden" value="1ROiUxwGvTyLWhAmBksvbhTRrdMcN99deUiA1oUS">
+    <h3 class="form-title text-center"><i class="icon-login"></i> Se connecter</h3>
+
+    <div class="alert alert-danger display-hide">
+        <button class="close" data-close="alert"></button>
+    </div>
+
+    
+    <div class="form-group">
+        <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+        <label class="control-label visible-ie8 visible-ie9">E-mail</label>
+        <div class="input-icon">
+            <i class="fa fa-envelope"></i>
+            <input class="form-control placeholder-no-fix" required="required" autocomplete="off" placeholder="E-mail" autofocus="autofocus" name="email" type="email" aria-required="true">
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <label class="control-label visible-ie8 visible-ie9">Mot de passe</label>
+        <div class="input-icon">
+            <i class="fa fa-lock"></i>
+            <input class="form-control placeholder-no-fix" required="required" autocomplete="off" placeholder="Mot de passe" name="password" type="password" value="" aria-required="true">
+        </div>
+    </div>
+    <div class="form-actions">
+        <button type="submit" class="btn blue pull-right">
+            Connexion <i class="m-icon-swapright m-icon-white"></i>
+        </button>
+    </div>
+    </form>
+</div>
+<div class="copyright" dir="lfr">
+    <i class="fa fa-dashboard"></i> Fi Aman Dashboard
+</div>
+<!-- END LOGIN -->
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="http://beta.kapri-dz.com/backend/vendor/respond/dest/respond.min.js"></script>
+
+<script src="http://beta.kapri-dz.com/backend/vendor/ExplorerCanvas/excanvas.js"></script>
+
+<![endif]-->
+<script src="./assets/jquery/jquery.min.js"></script>
+
+<!--<script src="http://beta.kapri-dz.com/backend/vendor/jquery/jquery-migrate.min.js"></script>
+-->
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.blockUI.js"></script>
+
+<script src="assets/js/js.cookie.js"></script>
+
+<script src="assets/js/jquery.uniform.standalone.js"></script>
+
+<script src="assets/js/jquery.notific8.min.js"></script>
+
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<script src="assets/js/jquery.validate.min.js"></script>
+
+<script src="assets/js/jquery.backstretch.min.js"></script>
+
+
+<!-- END PAGE LEVEL PLUGINS -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/js/metronic.js"></script>
+
+<script src="assets/js/layout.js"></script>
+
+
+<script src="assets/js/jsvalidation.js"></script>
+
+<script>
+    jQuery(document).ready(function(){
+
+        $(".login-form").validate({
+            errorElement: 'span',
+            errorClass: 'help-block error-help-block',
+
+            errorPlacement: function(error, element) {
+                if (element.parent('.input-group').length ||
+                    element.prop('type') === 'checkbox' || element.prop('type') === 'radio') {
+                    error.insertAfter(element.parent());
+                    // else just place the validation message immediatly after the input
+                } else {
+                    error.insertAfter(element);
+                }
+                error.css({'color':'#eee'});
+            },
+            highlight: function(element) {
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-error'); // add the Bootstrap error class to the control group
+            },
+
+            
+            /*
+             // Uncomment this to mark as validated non required fields
+             unhighlight: function(element) {
+             $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+             },
+             */
+            success: function(element) {
+                $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // remove the Boostrap error class from the control group
+            },
+
+            focusInvalid: false, // do not focus the last invalid input
+            
+            rules: {"email":{"laravelValidation":[["Required",[],"Le champ E-mail est obligatoire.",true],["Email",[],"Le champ E-mail doit \u00eatre une adresse e-mail valide.",false]]},"password":{"laravelValidation":[["Required",[],"Le champ Mot de passe est obligatoire.",true],["Min",["6"],"Le texte Mot de passe doit contenir au moins 6 caract\u00e8res.",false]]}}        })
+    })
+</script>
+
+
+
+<script>
+    /**
+     * Disable the submit button while evaluating if the form should be submitted
+     */
+    $('form').on('submit', function (e) {
+        $('button[type="submit"]').val("en cours de traitement...");
+        $('button[type="submit"]').prop('disabled', true);
+        $('button:submit').each(function () {
+            $(this).replaceWith('<button disabled="disabled" class="' + $(this).attr('class') + '" type="' + $(this).attr('type') + '" name="' + $(this).attr('name') + '" value="' + $(this).val() + '">' + '<i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>' + $(this).val() + '</button>');
+        });
+    });
+</script>
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core components
+        Layout.init(); // init current layout
+
+        
+        // init background slide images
+        $.backstretch([
+                "assets/imgs/1.jpg",
+                "assets/imgs/2.jpg",
+                "assets/imgs/3.jpg",
+                "assets/imgs/4.jpg"
+            ], {
+                fade: 1000,
+                duration: 3000
+            }
+        );
+    });
+</script>
+<!-- END JAVASCRIPTS -->
+
+<!-- END BODY -->
+<div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px; height: 586px; width: 1366px; z-index: -999999; position: fixed;"><div class="backstretch-item" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 100%; height: 100%; z-index: -999999;"><img alt="" src="assets/imgs/1.jpg" style="position: absolute; margin: 0px; padding: 0px; border: none; width: 1366px; height: 724.216px; max-width: none; left: 0px; top: -69.1078px; right: auto; bottom: auto;"></div></div></body></html>

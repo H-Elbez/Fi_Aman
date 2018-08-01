@@ -10,6 +10,8 @@ const path = require('path');
 app.use(bodyParser.json())
 app.use(methodOverride())
 
+app.use(express.static(__dirname + '/public'));
+
 const {Schema} = mongoose
 
 mongoose.connect('mongodb://terry_baz:hajjhack2018@ds157901.mlab.com:57901/hajjhack')
@@ -61,9 +63,12 @@ restify.serve(router, mongoose.model('Admin', Admin))
 
 app.use(router)
 
-// viewed at http://localhost:8080
 app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname + '/index.html'));
+    res.sendFile(path.join(__dirname + '/public/index.html'));
+});
+
+app.get('/dashboard', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/home.html'));
 });
 
 app.listen(3000, () => {

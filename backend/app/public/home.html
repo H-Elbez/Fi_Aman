@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<!--<![endif]--><!-- BEGIN HEAD -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Fi Aman |Admin Dashboard </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <meta name="robots" content="noindex,nofollow">
+    <meta content="" name="description">
+    <meta content="" name="author">
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/fonts/fontawesome/css/font-awesome.min.css">
+
+    <link media="all" type="text/css" rel="stylesheet"
+          href="./assets/fonts/simple-line-icons/css/simple-line-icons.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/default.css">
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/jquery.notific8.min.css">
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/css/custom.css">
+
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="http://beta.kapri-dz.com/backend/img/favicon.ico">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+          integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+          crossorigin=""/>
+
+    <style>
+        #mapid { height: 180px; }
+    </style>
+
+</head>
+<!-- END HEAD -->
+
+<body>
+
+
+
+
+
+<div id="mapid"></div>
+
+
+
+<script src="./assets/jquery/jquery.min.js"></script>
+
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="assets/js/jquery.notific8.min.js"></script>
+
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+
+<script>
+    var mymap = L.map('mapid').setView([21.620234,39.1574483], 15);
+
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+        id: 'mapbox.streets',
+        accessToken: 'pk.eyJ1IjoidGVycnliYXoiLCJhIjoiY2prYmt0OTZpMmdkMTN3bWtweXU2eDN1dSJ9.Ms2XJcVUCUVlpS81o2lAsg'
+    }).addTo(mymap);
+
+    var marker = L.marker([21.620234,39.1574483]).addTo(mymap);
+    marker.bindPopup("<div style='height: 20px;background-color: red'>" +
+        "<b>Hello world!</b><br>I am a popup." +
+        "</div>").openPopup();
+
+</script>
+
+</body>
+
+</html>
