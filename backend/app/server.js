@@ -67,8 +67,12 @@ app.get('/', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+// app.get('/dashboard', function(req, res) {
+//     res.sendFile(path.join(__dirname + '/public/home.html'));
+// });
+
 app.get('/dashboard', function(req, res) {
-    res.sendFile(path.join(__dirname + '/public/home.html'));
+    res.sendFile(path.join(__dirname + '/public/dashboard.html'));
 });
 
 app.listen(3000, () => {
