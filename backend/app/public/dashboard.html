@@ -649,22 +649,17 @@
 
     function drawPointMap(hajj) {
 
-        markers.map(function (marker) {
-            mymap.removeLayer(marker)
-        })
-
-        markers = []
-
         var demand = hajj.helpDemands[0]
 
         geos = demand.geo.split(',');
 
-        // console.log(geos)
+        console.log(geos)
 
         var marker = L.marker(
-            [geos[0], geos[1]]
+            [parseInt(geos[0]), parseInt(geos[1])]
         ).bindPopup(
             "<div>" +
+            '<img src="' + hajj.img + '">' +
             "<div><b>Name:</b>" + hajj.firstname + " " + hajj.lastname + "</div>" +
             "<div><b>Nationality:</b>" + hajj.nationality + "</div>" +
             "<div><b>Age:</b>" + hajj.age + "</div>" +
@@ -689,6 +684,13 @@
             //     jqxhr._data = settings.url.split("?").pop();
             // },
             success: function (data, textStatus, jqXHR) {
+
+                markers.map(function (marker) {
+                    mymap.removeLayer(marker)
+                })
+
+                markers = []
+
                 data.map(function (hajj) {
                     drawPointMap(hajj)
                 })

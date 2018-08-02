@@ -8,6 +8,7 @@ const router = express.Router()
 const path = require('path')
 const _Hajj = require('./models/Hajj')
 const _Admin = require('./models/Admin')
+const db = require('./config/db')
 
 app.use(bodyParser.json())
 app.use(methodOverride())
@@ -16,7 +17,8 @@ app.use(express.static(__dirname + '/public'));
 
 const {Schema} = mongoose
 
-mongoose.connect('mongodb://terry_baz:hajjhack2018@ds157901.mlab.com:57901/hajjhack')
+// mongoose.connect('mongodb://terry_baz:hajjhack2018@ds157901.mlab.com:57901/hajjhack')
+mongoose.connect('mongodb://'+db.username+':'+db.password+'@127.0.0.1:'+db.port+'/'+db.dbname)
 
 
 var Hajj = new mongoose.Schema(_Hajj)

@@ -2,6 +2,8 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 
 const Hajj = {
+    _id: {type: String},
+
     firstname: {type: String, required: true},
     lastname: {type: String, required: true},
     username: String,
