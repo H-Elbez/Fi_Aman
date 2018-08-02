@@ -51,8 +51,6 @@
 
     <link media="all" type="text/css" rel="stylesheet" href="./assets/css/custom.css">
 
-<!-- END THEME STYLES -->
-    <link rel="shortcut icon" href="http://beta.kapri-dz.com/backend/img/favicon.ico">
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->
@@ -70,8 +68,11 @@
 <!-- BEGIN LOGIN -->
 <div class="content">
     <!-- BEGIN LOGIN FORM -->
-    <form method="POST" action="/login" accept-charset="UTF-8" class="login-form" novalidate="novalidate"><input name="_token" type="hidden" value="1ROiUxwGvTyLWhAmBksvbhTRrdMcN99deUiA1oUS">
-    <h3 class="form-title text-center"><i class="icon-login"></i> Se connecter</h3>
+    <form method="GET" action="/dashboard" accept-charset="UTF-8" class="login-form" novalidate="novalidate">
+
+        <input name="_token" type="hidden" value="1ROiUxwGvTyLWhAmBksvbhTRrdMcN99deUiA1oUS">
+
+        <h3 class="form-title text-center"><i class="icon-login"></i> Se connecter</h3>
 
     <div class="alert alert-danger display-hide">
         <button class="close" data-close="alert"></button>
@@ -79,6 +80,7 @@
 
     
     <div class="form-group">
+
         <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
         <label class="control-label visible-ie8 visible-ie9">E-mail</label>
         <div class="input-icon">
@@ -106,14 +108,7 @@
     <i class="fa fa-dashboard"></i> Fi Aman Dashboard
 </div>
 <!-- END LOGIN -->
-<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
-<!-- BEGIN CORE PLUGINS -->
-<!--[if lt IE 9]>
-<script src="http://beta.kapri-dz.com/backend/vendor/respond/dest/respond.min.js"></script>
 
-<script src="http://beta.kapri-dz.com/backend/vendor/ExplorerCanvas/excanvas.js"></script>
-
-<![endif]-->
 <script src="./assets/jquery/jquery.min.js"></script>
 
 <!--<script src="http://beta.kapri-dz.com/backend/vendor/jquery/jquery-migrate.min.js"></script>
@@ -147,6 +142,8 @@
 <script>
     jQuery(document).ready(function(){
 
+        loginCorrect = false;
+
         $(".login-form").validate({
             errorElement: 'span',
             errorClass: 'help-block error-help-block',
@@ -173,12 +170,23 @@
              },
              */
             success: function(element) {
+                loginCorrect = true;
                 $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // remove the Boostrap error class from the control group
             },
 
             focusInvalid: false, // do not focus the last invalid input
             
             rules: {"email":{"laravelValidation":[["Required",[],"Le champ E-mail est obligatoire.",true],["Email",[],"Le champ E-mail doit \u00eatre une adresse e-mail valide.",false]]},"password":{"laravelValidation":[["Required",[],"Le champ Mot de passe est obligatoire.",true],["Min",["6"],"Le texte Mot de passe doit contenir au moins 6 caract\u00e8res.",false]]}}        })
+    })
+
+    $("form.login-form").on('submit',function (e) {
+
+        console.log('go dash')
+
+        window.location = 'dashboard'
+
+        e.stopPropagation()
+        e.preventDefault()
     })
 </script>
 
@@ -189,6 +197,7 @@
      * Disable the submit button while evaluating if the form should be submitted
      */
     $('form').on('submit', function (e) {
+        if(!loginCorrect) return;
         $('button[type="submit"]').val("en cours de traitement...");
         $('button[type="submit"]').prop('disabled', true);
         $('button:submit').each(function () {
