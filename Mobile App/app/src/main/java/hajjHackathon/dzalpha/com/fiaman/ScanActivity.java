@@ -26,16 +26,19 @@ import java.util.List;
 public class ScanActivity extends AppCompatActivity {
     CodeScanner codeScanner;
     CodeScannerView scannerView;
+    SharedData shared;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
+        shared = ((SharedData)getApplication());
         scannerView = findViewById(R.id.scanner_view);
         // Real time permissions request
         Dexter.withActivity(this)
                 .withPermissions(
                         Manifest.permission.CAMERA,
-                        Manifest.permission.ACCESS_FINE_LOCATION
+                        Manifest.permission.ACCESS_FINE_LOCATION,
+                        Manifest.permission.ACCESS_COARSE_LOCATION
                 ).withListener(new MultiplePermissionsListener() {
             @Override public void onPermissionsChecked(MultiplePermissionsReport report) {
                 if (report.areAllPermissionsGranted()){
@@ -49,6 +52,9 @@ public class ScanActivity extends AppCompatActivity {
                                 public void run() {
                                     //Toast.makeText(ScanActivity.this, result.getText(), Toast.LENGTH_SHORT).show();
                                     Toast.makeText(ScanActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                                    shared.editor = shared.LocationInfos.edit();
+                                    shared.editor.putBoolean("First_time",false);
+                                    shared.editor.apply();
                                     startActivity(new Intent(ScanActivity.this,MainActivity.class));
                                     finish();
                                 }
