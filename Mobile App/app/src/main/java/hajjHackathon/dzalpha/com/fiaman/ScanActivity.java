@@ -55,7 +55,7 @@ public class ScanActivity extends AppCompatActivity {
                                     shared.editor = shared.LocationInfos.edit();
                                     shared.editor.putBoolean("First_time",false);
                                     shared.editor.apply();
-                                    startActivity(new Intent(ScanActivity.this,MainActivity.class));
+                                    startActivity(new Intent(ScanActivity.this,MapActivity.class));
                                     finish();
                                 }
                             });
