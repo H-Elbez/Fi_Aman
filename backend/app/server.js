@@ -45,6 +45,11 @@ app.get('/dashboard', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/dashboard.html'));
 });
 
+
+app.get('/statistics', function(req, res) {
+    res.sendFile(path.join(__dirname + '/public/statistics.html'));
+});
+
 app.listen(3000, () => {
     console.log('Express server listening on port 3000')
 })
