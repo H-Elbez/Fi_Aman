@@ -31,6 +31,10 @@
         #mapid {
             height: 100%;
         }
+
+        .red-marker {
+            background-color: red;
+        }
     </style>
 
 </head>
@@ -196,7 +200,12 @@
         console.log(geos)
 
         var marker = L.marker(
-            [parseInt(geos[0]), parseInt(geos[1])]
+            [geos[0], geos[1]],
+            {
+                icon: L.divIcon({
+                    className: "red-marker"
+                })
+            }
         ).bindPopup(
             "<div>" +
             '<img src="' + hajj.img + '">' +
@@ -211,7 +220,7 @@
         markers.push(marker)
     }
 
-    setInterval(fetchMapData, 2000)
+    setInterval(fetchMapData, 8000)
 
     function fetchMapData() {
         $.ajax({
@@ -243,6 +252,7 @@
     }
 
     fetchMapData()
+
 
 </script>
 
