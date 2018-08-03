@@ -33,3 +33,4 @@ Being the official Hajj security system adopted by the KSA authorities, providin
 - [JQuery](https://github.com/jquery/jquery)
 - [DroneKit](https://github.com/dronekit/dronekit-python)
 
+[Hajj_Hackathon](http://hajjhackathon.devpost.com/)
