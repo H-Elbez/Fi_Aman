@@ -20,7 +20,7 @@ Internet connexion, Hajjij data availability , Location accuracy.
 Providing a high tech solution in order to decrease death rate in el Hajj, Guinness world record breaker and being at the biggest Hackathon in the middle east and north Africa.
 
 ## What we learned
-Team work,Drone remote controlling and going from an idea to a
+Team work, Drone remote controlling and going from an idea to a
 complete project both in technical and besiness part.
 
 
